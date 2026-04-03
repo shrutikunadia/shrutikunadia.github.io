@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Portfolio - Gargie Deore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .pdf-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #1a1a1a;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            max-width: 1200px;
+            height: calc(100vh - 150px);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            background: white;
+        }
+
+        .fallback-link {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .fallback-link a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .fallback-link a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .pdf-viewer {
+                height: calc(100vh - 120px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Gargie Deore</h1>
+        <p>Architecture Portfolio</p>
+    </div>
+
+    <div class="pdf-container">
+        <!--Replace here with new google drive link-->
+        <iframe
+            class="pdf-viewer"
+            src="https://drive.google.com/file/d/1CB66HptAS4U3BREMZ1sdbJIP37m5wVQ6/preview"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="fallback-link">
+        <p style="color: white; margin-bottom: 20px;">If the portfolio doesn't load above, click below:</p>
+        <!--Replace here with new google drive link-->
+        <a href="https://drive.google.com/file/d/1CB66HptAS4U3BREMZ1sdbJIP37m5wVQ6/view?usp=drive_link" target="_blank">
+            📐 Open Portfolio in New Tab
+        </a>
+    </div>
+
+    <script>
+        // Show fallback link if iframe fails to load
+        const iframe = document.querySelector('.pdf-viewer');
+        const fallback = document.querySelector('.fallback-link');
+
+        iframe.addEventListener('error', function() {
+            fallback.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+
